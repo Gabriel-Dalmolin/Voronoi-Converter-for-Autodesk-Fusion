@@ -7,8 +7,7 @@ import adsk.fusion
 import traceback
 
 from .sweep_edge import sweep_edge
-from .revolve_vertex import revolve_vertex
-from .combine_bodies import combine_bodies
+from .revolve_vertices import revolve_vertices
 
 bodies = adsk.core.ObjectCollection.create()
 seeds = []
@@ -19,9 +18,11 @@ def create_edges(root: adsk.fusion.Component, body: adsk.fusion.BRepBody, radius
 
 
 def create_vertices(root: adsk.fusion.Component, body: adsk.fusion.BRepBody, radius):
+    vertices = []
     for vertex in body.vertices:
-        revolve_vertex(root, 2 * radius, vertex.geometry, bodies)
         seeds.append(vertex.geometry.asArray())
+        vertices.append(vertex.geometry)
+    revolve_vertices(root, 2 * radius, vertices, bodies)
 
 
 def create_wireframe(root: adsk.fusion.Component, body: adsk.fusion.BRepBody, radius: float):

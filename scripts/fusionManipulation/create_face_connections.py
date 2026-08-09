@@ -3,7 +3,6 @@ import math
 import adsk.core
 import adsk.fusion
 
-from .revolve_vertex import revolve_vertex
 from .sweep_edge import sweep_edge
 import random
 

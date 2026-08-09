@@ -32,18 +32,12 @@ def convert_to_voronoi(root: adsk.fusion.Component, body: adsk.fusion.BRepBody, 
         ghost_index = len(seeds)
 
         seeds += gen_mirrored_ghost_points(seeds, body)
-        # seeds += gen_ghost_points(body)
-
-        # for s in seeds:   # Used for visualizing the seeds
-        #     vertex = adsk.core.Point3D.create(s[0], s[1], s[2])
-        #     revolve_vertex(root, radius, vertex, bodies)
 
         voronoi = scipy.spatial.Voronoi(seeds)
 
         app.log("Getting voronoi edges")
         interceptions, edges = get_voronoi_edges(body, voronoi, ghost_index)
         
-        # create_face_connections(root, bodies, interceptions, radius)
         app.log("Sweeping edges")
         sweep_voronoi_edges(root, bodies, edges, radius)
 
