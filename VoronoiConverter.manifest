@@ -6,7 +6,7 @@
 		"":	"Transforms a body into a 3D voronoi pattern"
 	},
 	"version":	"1.0.1",
-	"supportedOS":	"windows|mac",
+	"supportedOS":	"windows",
 	"editEnabled":	true,
 	"iconFilename":	"ScriptIcon.svg"
 }

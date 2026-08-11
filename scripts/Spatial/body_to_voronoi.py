@@ -16,7 +16,7 @@ from .fusionManipulation.create_wireframe import create_wireframe
 from .fusionManipulation.sweep_voronoi_edges import sweep_voronoi_edges
 from .fusionManipulation.create_face_connections import create_face_connections
 
-def convert_to_voronoi(root: adsk.fusion.Component, body: adsk.fusion.BRepBody, radius, size, lloyd):
+def body_to_voronoi(root: adsk.fusion.Component, body: adsk.fusion.BRepBody, radius, size, lloyd):
     try: 
         app = adsk.core.Application.get()
 
